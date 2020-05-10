@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Dodaj nowy samochód</title>
+</head>
+<body>
+<div align="center">
+    <h1>Dodaj nowy samochód</h1>
+    <br />
+    <form action="#" th:action="@{/zapisz}" th:object="${samochod}" method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Marka:</td>
+                <td><input type="text" th:field="*{marka}" /></td>
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td><input type="text" th:field="*{model}" /></td>
+            </tr>
+            <tr>
+                <td>Cena:</td>
+                <td><input type="text" th:field="*{cena}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Zatwierdź</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

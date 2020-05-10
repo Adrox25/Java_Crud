@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8"/>
+    <title>Komis Samochodowy</title>
+</head>
+<body>
+
+<div class="container" align="center">
+    <div class="jumbotron">
+        <h1>System Komisu Samochodowego</h1>
+        <p>Zarządzaj sprawnie swoimi autami!</p>
+    </div>
+    <h1>Lista dostępnych aut</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10" class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID samochodu</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Cena</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="samochod : ${listaSamochodow}">
+            <td th:text="${samochod.id}">ID samochodu</td>
+            <td th:text="${samochod.marka}">Marka</td>
+            <td th:text="${samochod.model}">Model</td>
+            <td th:text="${samochod.cena}">Cena</td>
+            <td>
+                <a th:href="@{'/edytuj/' + ${samochod.id}}"class="btn btn-primary">Edytuj</a>
+                <a th:href="@{'/usun/' + ${samochod.id}}" class="btn btn-primary">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/nowy" class="btn btn-primary">Dodaj samochód </a>
+</div>
+</body>
+</html>
